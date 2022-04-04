@@ -1,5 +1,6 @@
 package com.techreturners.tic_tac_toe;
 
+import com.techreturners.tic_tac_toe.app.TicTacToe;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,4 +1,4 @@
-package com.techreturners.tic_tac_toe;
+package com.techreturners.tic_tac_toe.app;
 
 import com.techreturners.tic_tac_toe.model.Tile;
 
