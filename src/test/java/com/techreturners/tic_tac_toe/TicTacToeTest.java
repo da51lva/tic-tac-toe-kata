@@ -54,16 +54,17 @@ public class TicTacToeTest {
     @Test
     public void testAllSpacesFilledAndNoWinner(){
         int[] moves = {1,2,4,7,5,6,8,9,3};
-        String lastExpected = String.format(SUCCESSFUL_TURN_MESSAGE,Tile.X,moves[moves.length-1]) + GAME_OVER_NO_WINNER_MESSAGE;
-        runTheGame(moves, lastExpected);
+        int lastMove = moves[moves.length-1];
+        String expectedFinalMessage = String.format(SUCCESSFUL_TURN_MESSAGE, Tile.X, lastMove) + GAME_OVER_NO_WINNER_MESSAGE;
+        runTheGame(moves, expectedFinalMessage);
     }
 
-    private void runTheGame(int[] moves, String lastExpected) {;
+    private void runTheGame(int[] moves, String expectedFinalMessage) {;
 
         int i = 0;
         for (; i < moves.length-1; i++) {
             game.play(moves[i]);
         }
-        assertEquals(lastExpected, game.play(moves[i]));
+        assertEquals(expectedFinalMessage, game.play(moves[i]));
     }
 }
