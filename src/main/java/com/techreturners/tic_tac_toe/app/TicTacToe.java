@@ -30,7 +30,7 @@ public class TicTacToe {
         if (grid[gridIndex] != null) return GRID_SPACED_FILLED_MESSAGE;
 
         grid[gridIndex] = tile;
-        String message = String.format("Player %s played their turn in position %s", tile, position);
+        String message = String.format(SUCCESSFUL_TURN_MESSAGE, tile, position);
         tile = tile == Tile.X ? Tile.O : Tile.X; //invert the turn;
 
         return message;
