@@ -10,8 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TicTacToeTest {
 
     private static final int GRID_SIZE = 9;
-    private static final String SUCCESSFUL_TURN_MESSAGE = "Player %s played their turn in position %s";
-    private static final String GRID_SPACED_FILLED_MESSAGE = "That grid space is already filled";
+    private static final String SUCCESSFUL_TURN_MESSAGE = "Player %s played their turn in position %s.";
+    private static final String GRID_SPACED_FILLED_MESSAGE = "That grid space is already filled.";
+    private static final String GAME_OVER_NO_WINNER_MESSAGE = " The Game is over. No-one won.";
     private TicTacToe game;
 
     @BeforeEach
@@ -35,12 +36,12 @@ public class TicTacToeTest {
     }
 
     @Test
-    public void testEmptyGridNinthMove(){
+    public void testEmptyGridEighthMove(){
         int gridPosition = 1;
-        for(;gridPosition < GRID_SIZE; gridPosition ++){
+        for(;gridPosition < GRID_SIZE-1; gridPosition ++){
             game.play(gridPosition);
         }
-        assertEquals(String.format(SUCCESSFUL_TURN_MESSAGE, Tile.X, gridPosition), game.play(gridPosition));
+        assertEquals(String.format(SUCCESSFUL_TURN_MESSAGE, Tile.O, gridPosition), game.play(gridPosition));
     }
 
     @Test
@@ -50,5 +51,19 @@ public class TicTacToeTest {
         assertEquals(GRID_SPACED_FILLED_MESSAGE, game.play(gridPosition));
     }
 
+    @Test
+    public void testAllSpacesFilledAndNoWinner(){
+        int[] moves = {1,2,4,7,5,6,8,9,3};
+        String lastExpected = String.format(SUCCESSFUL_TURN_MESSAGE,Tile.X,moves[moves.length-1]) + GAME_OVER_NO_WINNER_MESSAGE;
+        runTheGame(moves, lastExpected);
+    }
 
+    private void runTheGame(int[] moves, String lastExpected) {;
+
+        int i = 0;
+        for (; i < moves.length-1; i++) {
+            game.play(moves[i]);
+        }
+        assertEquals(lastExpected, game.play(moves[i]));
+    }
 }

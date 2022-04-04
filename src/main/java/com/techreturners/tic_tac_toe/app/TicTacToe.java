@@ -5,11 +5,14 @@ import com.techreturners.tic_tac_toe.model.Tile;
 public class TicTacToe {
 
     private static final int GRID_SIZE = 9;
-    private static final String SUCCESSFUL_TURN_MESSAGE = "Player %s played their turn in position %s";
-    private static final String GRID_SPACED_FILLED_MESSAGE = "That grid space is already filled";
+    private static final String SUCCESSFUL_TURN_MESSAGE = "Player %s played their turn in position %s.";
+    private static final String GRID_SPACED_FILLED_MESSAGE = "That grid space is already filled.";
+    private static final String GAME_OVER_NO_WINNER_MESSAGE = " The Game is over. No-one won.";
 
     private Tile tile;
     private Tile[] grid = new Tile[GRID_SIZE];
+
+    private int noOfTurns = 0;
 
     public TicTacToe(){
         tile = Tile.X;
@@ -29,11 +32,15 @@ public class TicTacToe {
         int gridIndex = position - 1;
         if (grid[gridIndex] != null) return GRID_SPACED_FILLED_MESSAGE;
 
+        //play the turn
         grid[gridIndex] = tile;
         String message = String.format(SUCCESSFUL_TURN_MESSAGE, tile, position);
-        tile = tile == Tile.X ? Tile.O : Tile.X; //invert the turn;
 
-        return message;
+        //setup for next turn
+        tile = tile == Tile.X ? Tile.O : Tile.X; //invert the turn;
+        noOfTurns++;
+
+        return noOfTurns == GRID_SIZE? message + GAME_OVER_NO_WINNER_MESSAGE : message;
     }
 
 
