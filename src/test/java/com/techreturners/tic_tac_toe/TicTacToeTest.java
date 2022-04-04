@@ -11,6 +11,7 @@ public class TicTacToeTest {
 
     private static final int GRID_SIZE = 9;
     private static final String SUCCESSFUL_TURN_MESSAGE = "Player %s played their turn in position %s";
+    private static final String GRID_SPACED_FILLED_MESSAGE = "That grid space is already filled";
     private TicTacToe game;
 
     @BeforeEach
@@ -40,6 +41,13 @@ public class TicTacToeTest {
             game.play(gridPosition);
         }
         assertEquals(String.format(SUCCESSFUL_TURN_MESSAGE, Tile.X, gridPosition), game.play(gridPosition));
+    }
+
+    @Test
+    public void testPlacingTileInFilledGridSpace(){
+        int gridPosition = 1;
+        game.play(gridPosition);
+        assertEquals(GRID_SPACED_FILLED_MESSAGE, game.play(gridPosition));
     }
 
 
