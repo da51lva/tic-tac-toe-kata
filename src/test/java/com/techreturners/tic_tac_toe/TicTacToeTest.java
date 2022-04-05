@@ -13,6 +13,7 @@ public class TicTacToeTest {
     private static final String SUCCESSFUL_TURN_MESSAGE = "Player %s played their turn in position %s.";
     private static final String GRID_SPACED_FILLED_MESSAGE = "That grid space is already filled.";
     private static final String GAME_OVER_NO_WINNER_MESSAGE = " The Game is over. No-one won.";
+    private static final String GAME_OVER_WINNER_MESSAGE = " The Game is over. %s won.";
     private TicTacToe game;
 
     @BeforeEach
@@ -57,6 +58,14 @@ public class TicTacToeTest {
         int lastMove = moves[moves.length-1];
         String expectedFinalMessage = String.format(SUCCESSFUL_TURN_MESSAGE, Tile.X, lastMove) + GAME_OVER_NO_WINNER_MESSAGE;
         runTheGame(moves, expectedFinalMessage);
+    }
+
+    @Test
+    public void testXWinnerFirstRow(){
+        int[] moves = {1,4,2,7,3};
+        int lastMove = moves[moves.length-1];
+        String expectedFinalMessage = String.format(SUCCESSFUL_TURN_MESSAGE + GAME_OVER_WINNER_MESSAGE, Tile.X, lastMove, Tile.X);
+        runTheGame(moves,expectedFinalMessage);
     }
 
     private void runTheGame(int[] moves, String expectedFinalMessage) {

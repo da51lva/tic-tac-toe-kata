@@ -8,6 +8,7 @@ public class TicTacToe {
     private static final String SUCCESSFUL_TURN_MESSAGE = "Player %s played their turn in position %s.";
     private static final String GRID_SPACED_FILLED_MESSAGE = "That grid space is already filled.";
     private static final String GAME_OVER_NO_WINNER_MESSAGE = " The Game is over. No-one won.";
+    private static final String GAME_OVER_WINNER_MESSAGE = " The Game is over. %s won.";
 
     private Tile tile;
     private Tile[] grid = new Tile[GRID_SIZE];
@@ -35,14 +36,24 @@ public class TicTacToe {
         //play the turn
         grid[gridIndex] = tile;
         String message = String.format(SUCCESSFUL_TURN_MESSAGE, tile, position);
-
-        //setup for next turn
-        tile = tile == Tile.X ? Tile.O : Tile.X; //invert the turn;
         noOfTurns++;
 
-        return noOfTurns == GRID_SIZE? message + GAME_OVER_NO_WINNER_MESSAGE : message;
+        if(playerWon())
+            message = message + String.format(GAME_OVER_WINNER_MESSAGE, tile);
+        else if(noOfTurns == GRID_SIZE)
+            message = message + GAME_OVER_NO_WINNER_MESSAGE;
+        else
+            tile = tile == Tile.X ? Tile.O : Tile.X; //invert the turn;
+
+        return message;
     }
 
+    private boolean playerWon() {
+        if(grid[0] != null && grid[0] == grid[1] && grid[0] == grid[2])
+            return true;
+        else
+            return false;
+    }
 
 
 }
