@@ -20,7 +20,7 @@ public class TicTacToe {
 
     /**
      * Plays a move on a Tic Tac Toe grid, Player X starts first and then alternates every turn. The grid positions are:
-     * <p>
+     *
      * [1][2][3]
      * [4][5][6]
      * [7][8][9]

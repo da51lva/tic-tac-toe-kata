@@ -1,5 +1,9 @@
 package com.techreturners.tic_tac_toe.model;
 
+/**
+ * Represents a Row, or Column or Diagonal on a Tic Tac Toe Board where if all the Tiles are the same constitutes a win
+ * for a player
+ */
 public class WinningThreeIndices {
 
     private int[] wti = new int[3];
@@ -22,9 +26,9 @@ public class WinningThreeIndices {
         return wti[2];
     }
 
-    protected boolean contains(int lastPosition) {
+    protected boolean contains(int lastIndex) {
         for (int i : wti)
-            if (i == lastPosition)
+            if (i == lastIndex)
                 return true;
 
         return false;
