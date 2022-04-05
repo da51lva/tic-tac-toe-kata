@@ -24,6 +24,8 @@ public class TicTacToeBoard {
     }
 
     public void playTile(Tile tile, int position){
+        if (board[position-1] != null)
+            throw new IllegalArgumentException(String.format("Position %s on the TicTacToeBoard is already filled", position));
         board[position-1] =  tile;
         lastPosition = position;
         positionsFilled++;
