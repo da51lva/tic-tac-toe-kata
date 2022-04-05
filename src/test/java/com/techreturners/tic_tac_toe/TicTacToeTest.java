@@ -59,7 +59,7 @@ public class TicTacToeTest {
         runTheGame(moves, expectedFinalMessage);
     }
 
-    private void runTheGame(int[] moves, String expectedFinalMessage) {;
+    private void runTheGame(int[] moves, String expectedFinalMessage) {
 
         int i = 0;
         for (; i < moves.length-1; i++) {
