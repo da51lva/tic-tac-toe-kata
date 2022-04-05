@@ -1,6 +1,7 @@
 package com.techreturners.tic_tac_toe.app;
 
 import com.techreturners.tic_tac_toe.model.Tile;
+import com.techreturners.tic_tac_toe.model.WinningGridSpaces;
 
 public class TicTacToe {
 
@@ -51,9 +52,10 @@ public class TicTacToe {
     private boolean playerWon() {
         if(grid[0] != null && grid[0] == grid[1] && grid[0] == grid[2])
             return true;
+        else if(grid[3] != null && grid[3] == grid[4] && grid[3] == grid[5])
+            return true;
         else
             return false;
     }
-
 
 }

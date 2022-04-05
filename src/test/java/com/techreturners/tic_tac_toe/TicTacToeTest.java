@@ -68,6 +68,14 @@ public class TicTacToeTest {
         runTheGame(moves,expectedFinalMessage);
     }
 
+    @Test
+    public void testXWinnerSecondRow(){
+        int[] moves = {4,1,5,2,6};
+        int lastMove = moves[moves.length-1];
+        String expectedFinalMessage = String.format(SUCCESSFUL_TURN_MESSAGE + GAME_OVER_WINNER_MESSAGE, Tile.X, lastMove, Tile.X);
+        runTheGame(moves,expectedFinalMessage);
+    }
+
     private void runTheGame(int[] moves, String expectedFinalMessage) {
 
         int i = 0;
