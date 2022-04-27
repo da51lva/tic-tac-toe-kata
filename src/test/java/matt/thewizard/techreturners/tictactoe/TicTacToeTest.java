@@ -1,7 +1,7 @@
-package com.techreturners.tic_tac_toe;
+package matt.thewizard.techreturners.tictactoe;
 
-import com.techreturners.tic_tac_toe.app.TicTacToe;
-import com.techreturners.tic_tac_toe.model.Tile;
+import matt.thewizard.techreturners.tictactoe.app.TicTacToe;
+import matt.thewizard.techreturners.tictactoe.model.Tile;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

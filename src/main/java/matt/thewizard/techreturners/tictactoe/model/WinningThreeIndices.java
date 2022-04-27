@@ -1,4 +1,4 @@
-package com.techreturners.tic_tac_toe.model;
+package matt.thewizard.techreturners.tictactoe.model;
 
 /**
  * Represents a Row, or Column or Diagonal on a Tic Tac Toe Board where if all the Tiles are the same constitutes a win

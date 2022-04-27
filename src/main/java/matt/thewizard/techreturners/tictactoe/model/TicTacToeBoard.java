@@ -1,4 +1,4 @@
-package com.techreturners.tic_tac_toe.model;
+package matt.thewizard.techreturners.tictactoe.model;
 
 import java.util.ArrayList;
 import java.util.List;

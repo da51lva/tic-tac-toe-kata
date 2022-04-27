@@ -1,7 +1,7 @@
-package com.techreturners.tic_tac_toe.app;
+package matt.thewizard.techreturners.tictactoe.app;
 
-import com.techreturners.tic_tac_toe.model.TicTacToeBoard;
-import com.techreturners.tic_tac_toe.model.Tile;
+import matt.thewizard.techreturners.tictactoe.model.TicTacToeBoard;
+import matt.thewizard.techreturners.tictactoe.model.Tile;
 
 public class TicTacToe {
 
